@@ -84,6 +84,29 @@ const secondsElement = document.getElementById('seconds');
 
 // تهيئة الموقع عند التحميل
 document.addEventListener('DOMContentLoaded', function() {
+        // زر تبديل الوضع الليلي/النهاري مع أنيميشن انتقال للموقع
+        const themeToggle = document.getElementById('themeToggle');
+        if (themeToggle) {
+            const themeIcon = themeToggle.querySelector('.theme-icon');
+            function setThemeIcon() {
+                if(document.body.classList.contains('light-mode')) {
+                    themeIcon.innerHTML = '<i class="fas fa-sun"></i>';
+                } else {
+                    themeIcon.innerHTML = '<i class="fas fa-moon"></i>';
+                }
+            }
+            setThemeIcon();
+            themeToggle.addEventListener('click', function() {
+                themeToggle.classList.add('active');
+                document.body.classList.add('theme-fade');
+                document.body.classList.toggle('light-mode');
+                setThemeIcon();
+                setTimeout(() => {
+                    themeToggle.classList.remove('active');
+                    document.body.classList.remove('theme-fade');
+                }, 500);
+            });
+        }
     // إضافة قلوب متحركة
     createFloatingHearts();
     

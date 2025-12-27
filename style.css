@@ -1,3 +1,103 @@
+/* انتقال fade ناعم عند تبديل الوضع */
+.theme-fade {
+    animation: themeFadeOnly 0.5s cubic-bezier(.4,0,.2,1);
+}
+@keyframes themeFadeOnly {
+    0% { opacity: 0.3; }
+    100% { opacity: 1; }
+}
+/* أنيميشن عند تبديل الوضع */
+/* أنيميشن زر تبديل الوضع بشكل bounce ناعم */
+/* أنيميشن زر تبديل الوضع: دوران سلس مع تكبير خفيف */
+.theme-toggle.active .theme-icon {
+    animation: themeSmoothRotate 0.5s cubic-bezier(.68,-0.55,.27,1.55);
+}
+@keyframes themeSmoothRotate {
+    0% { transform: rotate(0deg) scale(1); }
+    80% { transform: rotate(180deg) scale(1.22); }
+    100% { transform: rotate(180deg) scale(1.15); }
+}
+
+.theme-toggle {
+    transition: background 0.4s cubic-bezier(.68,-0.55,.27,1.55), color 0.4s cubic-bezier(.68,-0.55,.27,1.55), box-shadow 0.3s, transform 0.2s;
+}
+
+body, .light-mode body {
+    transition: background 0.7s cubic-bezier(.68,-0.55,.27,1.55), color 0.7s cubic-bezier(.68,-0.55,.27,1.55);
+    will-change: background, color;
+}
+.theme-toggle {
+    position: fixed;
+    top: 25px;
+    left: 25px;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.18);
+    border: none;
+    color: #ff4081;
+    font-size: 1.7rem;
+    cursor: pointer;
+    z-index: 2000;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    transition: background 0.3s, color 0.3s, transform 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.theme-toggle:hover {
+    background: #ff4081;
+    color: #fff;
+    transform: scale(1.08);
+}
+.theme-icon {
+    transition: transform 0.5s cubic-bezier(.68,-0.55,.27,1.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.theme-toggle.active .theme-icon {
+    transform: rotate(180deg) scale(1.2);
+}
+/* الوضع الفاتح (light mode) */
+.light-mode body,
+.light-mode {
+    background: linear-gradient(135deg, #838383 0%, #8a8a8a 100%) !important;
+    color: #222 !important;
+}
+.light-mode .container,
+.light-mode .message,
+.light-mode .memory-item,
+.light-mode .time-unit,
+.light-mode .hint,
+.light-mode .back-btn,
+.light-mode .developer-signature {
+    background: rgba(116, 116, 116, 0.85) !important;
+    color: #222 !important;
+    border-color: #838383 !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06) !important;
+}
+.light-mode .content h2,
+.light-mode h1 {
+    color: #ff4081 !important;
+    background: none !important;
+    -webkit-text-fill-color: unset !important;
+    text-shadow: none !important;
+}
+.light-mode .special-name {
+    color: #ff9800 !important;
+    text-shadow: none !important;
+}
+.light-mode .theme-toggle {
+    background: #fff !important;
+    color: #ff4081 !important;
+    border: 1px solid #eee !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+}
+.light-mode .theme-toggle:hover {
+    background: #ff4081 !important;
+    color: #fff !important;
+}
 /* حركة إخفاء رسالة السنة الجديدة */
 .new-year-message.fade-out {
     animation: fadeOutNewYear 0.7s forwards;
@@ -685,3 +785,4 @@ h1 {
         font-size: 24px;
     }
 }
+
