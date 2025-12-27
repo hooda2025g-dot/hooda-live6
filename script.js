@@ -137,6 +137,14 @@ function checkPassword() {
 }
 
 function showContent(passwordKey) {
+        // إخفاء رسالة السنة الجديدة إذا كانت ظاهرة
+        const newYearMsg = document.querySelector('.new-year-message');
+        if (newYearMsg) {
+            newYearMsg.classList.add('fade-out');
+            setTimeout(() => {
+                newYearMsg.style.display = 'none';
+            }, 700);
+        }
     // أنيميشن خروج عناصر القائمة فقط (وليس الشاشة كلها)
     const container = passwordScreen.querySelector('.container');
     // طبق الأنيميشن على الصندوق بالكامل (container)

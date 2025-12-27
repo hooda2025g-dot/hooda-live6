@@ -1,3 +1,14 @@
+/* حركة إخفاء رسالة السنة الجديدة */
+.new-year-message.fade-out {
+    animation: fadeOutNewYear 0.7s forwards;
+}
+@keyframes fadeOutNewYear {
+    to {
+        opacity: 0;
+        transform: translateY(-40px) scale(0.95);
+        pointer-events: none;
+    }
+}
 /* أنيميشن خروج عناصر شاشة كلمة السر يمين ويسار */
 .slide-out-right {
     animation: slideOutRight 0.7s cubic-bezier(0.7,0.2,0.3,1) forwards;
