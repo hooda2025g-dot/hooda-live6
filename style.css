@@ -1,3 +1,49 @@
+.theme-toggle {
+    position: fixed;
+    top: 25px;
+    left: 25px;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.18);
+    border: none;
+    color: #ff4081;
+    font-size: 1.7rem;
+    cursor: pointer;
+    z-index: 2000;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    transition: background 0.3s, color 0.3s, transform 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.theme-toggle:hover {
+    background: #ff4081;
+    color: #fff;
+    transform: scale(1.08);
+}
+.theme-icon {
+    transition: transform 0.5s cubic-bezier(.68,-0.55,.27,1.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* أنيميشن دوران للأمام (ليل ← فاتح) */
+.rotate-forward {
+    animation: themeRotateForward 0.5s cubic-bezier(.68,-0.55,.27,1.55);
+}
+@keyframes themeRotateForward {
+    0% { transform: rotate(0deg) scale(1); }
+    100% { transform: rotate(180deg) scale(1); }
+}
+/* أنيميشن دوران للخلف (فاتح ← ليل) */
+.rotate-back {
+    animation: themeRotateBack 0.5s cubic-bezier(.68,-0.55,.27,1.55);
+}
+@keyframes themeRotateBack {
+    0% { transform: rotate(180deg) scale(1); }
+    100% { transform: rotate(0deg) scale(1); }
+}
 /* انتقال fade ناعم عند تبديل الوضع */
 .theme-fade {
     animation: themeFadeOnly 0.5s cubic-bezier(.4,0,.2,1);

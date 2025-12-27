@@ -88,11 +88,18 @@ document.addEventListener('DOMContentLoaded', function() {
         const themeToggle = document.getElementById('themeToggle');
         if (themeToggle) {
             const themeIcon = themeToggle.querySelector('.theme-icon');
+            let isLight = false;
             function setThemeIcon() {
                 if(document.body.classList.contains('light-mode')) {
                     themeIcon.innerHTML = '<i class="fas fa-sun"></i>';
+                    themeIcon.classList.remove('rotate-back');
+                    themeIcon.classList.add('rotate-forward');
+                    isLight = true;
                 } else {
                     themeIcon.innerHTML = '<i class="fas fa-moon"></i>';
+                    themeIcon.classList.remove('rotate-forward');
+                    themeIcon.classList.add('rotate-back');
+                    isLight = false;
                 }
             }
             setThemeIcon();
