@@ -1,3 +1,30 @@
+/* تعطيل تحديد ونسخ النصوص في جميع أجزاء الموقع */
+body, html, * {
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+}
+/* تعطيل تأثير tap highlight في الموبايل والأجهزة اللمسية لكل الأزرار */
+button, .theme-toggle {
+    -webkit-tap-highlight-color: transparent;
+}
+/* إخفاء تأثير التحديد الأزرق عند الضغط على جميع الأزرار */
+button:focus, button:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
+button::-moz-focus-inner {
+    border: 0;
+}
+/* إخفاء تأثير التحديد الأزرق عند الضغط على زر الوضع */
+.theme-toggle:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+.theme-toggle::-moz-focus-inner {
+    border: 0;
+}
 .theme-toggle {
     position: fixed;
     top: 25px;
